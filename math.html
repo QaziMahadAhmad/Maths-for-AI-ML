@@ -1,0 +1,2723 @@
+Statistics probability guide · HTML
+Copy
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics & Probability - Simple Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+        
+        .topic {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9ff;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .topic:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .topic h2 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .topic-number {
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            margin-right: 10px;
+        }
+        
+        .simple-explanation {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .details {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px dashed #ddd;
+        }
+        
+        .details.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .example {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: 2px solid #e0e7ff;
+        }
+        
+        .example-title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .formula {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            border-left: 3px solid #ffc107;
+        }
+        
+        .toggle-icon {
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        
+        .visual {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .key-point {
+            background: #e8f5e9;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 3px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Statistics & Probability</h1>
+        
+        <div class="topic" onclick="toggleDetails(this)">
+            <h2>
+                <span><span class="topic-number">1</span>Populations & Sampling</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="simple-explanation">🎯 Studying a small group to learn about everyone</p>
+            <div class="details">
+                <p><strong>Population:</strong> The entire group you want to study (e.g., all students in a country)</p>
+                <p><strong>Sample:</strong> A smaller group you actually study (e.g., 1,000 students)</p>
+                
+                <div class="formula">
+                    <strong>Sample Mean:</strong> x̄ = Σx / n<br>
+                    <strong>Population Mean:</strong> μ = ΣX / N<br>
+                    <br>
+                    <strong>Standard Error:</strong> SE = σ / √n<br>
+                    (measures how much sample means vary)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Real-life example:</div>
+                    <p>🍲 Imagine tasting soup. You don't drink the whole pot — you taste one spoonful (sample) to know if the whole pot (population) tastes good!</p>
+                </div>
+                
+                <div class="key-point">
+                    <strong>Why it matters:</strong> We can't always study everyone, so we study a representative sample and make conclusions about the whole group.
+                </div>
+            </div>
+        </div>
+
+        <div class="topic" onclick="toggleDetails(this)">
+            <h2>
+                <span><span class="topic-number">2</span>Mean, Median, Mode & Expected Values</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="simple-explanation">📈 Different ways to find the "middle" or "typical" value</p>
+            <div class="details">
+                <p><strong>Mean:</strong> The average (add all numbers, divide by count)</p>
+                <div class="formula">
+                    Mean (μ) = (x₁ + x₂ + ... + xₙ) / n = Σx / n
+                </div>
+                
+                <p><strong>Median:</strong> The middle number when sorted</p>
+                <div class="formula">
+                    If n is odd: median = middle value<br>
+                    If n is even: median = (middle two values) / 2
+                </div>
+                
+                <p><strong>Mode:</strong> The most common number (no formula, just count!)</p>
+                
+                <p><strong>Expected Value:</strong> The average outcome you'd expect in the long run</p>
+                <div class="formula">
+                    E(X) = Σ [x × P(x)] = x₁P(x₁) + x₂P(x₂) + ... + xₙP(xₙ)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example with test scores: 60, 70, 70, 80, 100</div>
+                    <p>📊 <strong>Mean:</strong> (60+70+70+80+100) ÷ 5 = 76</p>
+                    <p>📊 <strong>Median:</strong> 70 (the middle value)</p>
+                    <p>📊 <strong>Mode:</strong> 70 (appears twice, most frequent)</p>
+                </div>
+                
+                <div class="key-point">
+                    <strong>When to use which:</strong> Use median when you have extreme values (like income data), mean for normal data, and mode for categories (like favorite colors).
+                </div>
+            </div>
+        </div>
+
+        <div class="topic" onclick="toggleDetails(this)">
+            <h2>
+                <span><span class="topic-number">3</span>Variance & Covariance</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="simple-explanation">📏 How spread out are your numbers? Do two things change together?</p>
+            <div class="details">
+                <p><strong>Variance:</strong> Measures how far numbers are from the average</p>
+                <div class="formula">
+                    Variance (σ²) = Σ(xᵢ - μ)² / n<br>
+                    Sample Variance (s²) = Σ(xᵢ - x̄)² / (n-1)
+                </div>
+                
+                <p><strong>Standard Deviation:</strong> Square root of variance (same units as data)</p>
+                <div class="formula">
+                    σ = √(Variance) = √σ²
+                </div>
+                
+                <p><strong>Covariance:</strong> Measures if two variables move together</p>
+                <div class="formula">
+                    Cov(X,Y) = Σ(xᵢ - x̄)(yᵢ - ȳ) / (n-1)<br>
+                    Positive → move together | Negative → move opposite
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Variance example:</div>
+                    <p>🎯 Test scores: [50, 51, 49, 50] → Low variance (all close together)</p>
+                    <p>🎯 Test scores: [20, 50, 80, 95] → High variance (spread out)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Covariance example:</div>
+                    <p>☕ Study hours and test scores usually have positive covariance (both increase together)</p>
+                    <p>📺 TV watching and test scores might have negative covariance (one up, other down)</p>
+                </div>
+                
+                <div class="key-point">
+                    <strong>Think of it like:</strong> Variance = how scattered your data is. Covariance = do two things dance together?
+                </div>
+            </div>
+        </div>
+
+        <div class="topic" onclick="toggleDetails(this)">
+            <h2>
+                <span><span class="topic-number">4</span>Random Variables</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="simple-explanation">🎲 A variable whose value depends on chance</p>
+            <div class="details">
+                <p>A random variable assigns numbers to outcomes of a random process.</p>
+                
+                <div class="formula">
+                    <strong>Probability Mass Function (Discrete):</strong><br>
+                    P(X = x) = probability that X equals x<br>
+                    Sum of all probabilities = 1
+                </div>
+                
+                <div class="formula">
+                    <strong>Probability Density Function (Continuous):</strong><br>
+                    P(a ≤ X ≤ b) = ∫ₐᵇ f(x)dx
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Rolling a die:</div>
+                    <p>🎲 The number you get (1, 2, 3, 4, 5, or 6) is a random variable</p>
+                    <p>Each outcome has probability = 1/6</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Flipping 3 coins:</div>
+                    <p>🪙 Number of heads = random variable (can be 0, 1, 2, or 3)</p>
+                </div>
+                
+                <div class="key-point">
+                    <strong>Two types:</strong> Discrete (countable, like dice rolls) and Continuous (any value in a range, like height)
+                </div>
+            </div>
+        </div>
+
+        <div class="topic" onclick="toggleDetails(this)">
+            <h2>
+                <span><span class="topic-number">5</span>Common Probability Distributions</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="simple-explanation">📊 Patterns that random events follow</p>
+            <div class="details">
+                <p><strong>Normal Distribution:</strong> The bell curve — most values near average</p>
+                <div class="formula">
+                    f(x) = (1/(σ√(2π))) × e^(-(x-μ)²/(2σ²))<br>
+                    Parameters: μ (mean), σ (standard deviation)
+                </div>
+                
+                <p><strong>Binomial Distribution:</strong> Success/failure over repeated trials</p>
+                <div class="formula">
+                    P(X = k) = C(n,k) × p^k × (1-p)^(n-k)<br>
+                    where C(n,k) = n! / (k!(n-k)!)<br>
+                    Parameters: n (trials), p (success probability)
+                </div>
+                
+                <p><strong>Uniform Distribution:</strong> All outcomes equally likely</p>
+                <div class="formula">
+                    P(X = x) = 1/n (discrete)<br>
+                    f(x) = 1/(b-a) for a ≤ x ≤ b (continuous)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Normal (Bell Curve):</div>
+                    <p>📏 Heights of people, test scores, measurement errors</p>
+                    <p>Most people are average height, few are very tall or very short</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Binomial:</div>
+                    <p>🪙 Flipping a coin 10 times, counting heads</p>
+                    <p>🎯 Taking 20 free throws, counting makes</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Uniform:</div>
+                    <p>🎲 Rolling a fair die — each number equally likely</p>
+                </div>
+                
+                <div class="key-point">
+                    <strong>Why it matters:</strong> Recognizing patterns helps us make predictions and understand probability.
+                </div>
+            </div>
+        </div>
+
+        <div class="topic" onclick="toggleDetails(this)">
+            <h2>
+                <span><span class="topic-number">6</span>Central Limit Theorem</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="simple-explanation">✨ Magic theorem: averages become normal, even if data isn't!</p>
+            <div class="details">
+                <p>When you take many samples and calculate their averages, those averages form a normal distribution — even if the original data doesn't!</p>
+                
+                <div class="formula">
+                    If X₁, X₂, ..., Xₙ are independent random variables:<br>
+                    Sample Mean (X̄) → Normal(μ, σ²/n) as n → ∞<br>
+                    <br>
+                    Z = (X̄ - μ) / (σ/√n) → Standard Normal(0,1)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Rolling dice:</div>
+                    <p>🎲 One die: uniform (each 1-6 equally likely)</p>
+                    <p>🎲🎲 Average of 30 dice rolls: becomes a bell curve!</p>
+                </div>
+                
+                <div class="key-point">
+                    <strong>Why it's amazing:</strong> This is why so many things in nature follow the bell curve — they're averages of many small random effects!
+                </div>
+                
+                <div class="visual">
+                    <p style="color: #667eea; font-weight: bold;">The bigger your sample size, the more "normal" the averages become</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="topic" onclick="toggleDetails(this)">
+            <h2>
+                <span><span class="topic-number">7</span>Conditional Probability</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="simple-explanation">🔄 Probability changes when you know something happened</p>
+            <div class="details">
+                <p>P(A|B) = Probability of A happening, given that B already happened</p>
+                
+                <div class="formula">
+                    P(A|B) = P(A and B) / P(B)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Drawing cards:</div>
+                    <p>🃏 Probability of drawing an Ace: 4/52</p>
+                    <p>🃏 Probability of drawing an Ace, GIVEN you know it's a heart: 1/13</p>
+                    <p>The knowledge that it's a heart changes the probability!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Weather:</div>
+                    <p>☁️ P(rain) = 30%</p>
+                    <p>☁️ P(rain | cloudy) = 70%</p>
+                    <p>If you know it's cloudy, rain becomes more likely!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="topic" onclick="toggleDetails(this)">
+            <h2>
+                <span><span class="topic-number">8</span>Bayes' Theorem</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="simple-explanation">🔁 Update your beliefs based on new evidence</p>
+            <div class="details">
+                <p>Lets you reverse conditional probabilities — incredibly useful in real life!</p>
+                
+                <div class="formula">
+                    P(A|B) = P(B|A) × P(A) / P(B)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Medical testing:</div>
+                    <p>🏥 You want: P(disease | positive test)</p>
+                    <p>🏥 You know: P(positive test | disease) and how rare the disease is</p>
+                    <p>Bayes helps you figure out: "If I test positive, what's the actual chance I have it?"</p>
+                    <p style="margin-top: 10px; color: #d32f2f;"><strong>Surprising fact:</strong> Even with a 99% accurate test, if the disease is rare, most positive results are false positives!</p>
+                </div>
+                
+                <div class="key-point">
+                    <strong>Real uses:</strong> Spam filters, medical diagnosis, weather forecasting, AI/machine learning
+                </div>
+            </div>
+        </div>
+
+        <div class="topic" onclick="toggleDetails(this)">
+            <h2>
+                <span><span class="topic-number">9</span>Maximum Likelihood Estimation (MLE)</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="simple-explanation">🎯 Find the best explanation for your data</p>
+            <div class="details">
+                <p>A method to estimate parameters by finding values that make your observed data most probable.</p>
+                
+                <div class="formula">
+                    <strong>Likelihood Function:</strong><br>
+                    L(θ|x) = P(x|θ) = product of probabilities<br>
+                    <br>
+                    <strong>Goal:</strong> Find θ that maximizes L(θ|x)<br>
+                    Usually maximize log-likelihood: ln(L(θ|x))<br>
+                    <br>
+                    <strong>Method:</strong> Take derivative, set to 0, solve for θ
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Coin flip example:</div>
+                    <p>🪙 You flip a coin 100 times: 60 heads, 40 tails</p>
+                    <p>🤔 What's the probability of heads?</p>
+                    <p>✅ MLE says: 60/100 = 0.6 (because that makes the data most likely)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Think of it like:</div>
+                    <p>🔍 You found footprints in the snow. MLE asks: "What size shoe would most likely make these prints?"</p>
+                </div>
+                
+                <div class="key-point">
+                    <strong>Used in:</strong> Fitting statistical models, machine learning, finding patterns in data
+                </div>
+            </div>
+        </div>
+
+        <div class="topic" onclick="toggleDetails(this)">
+            <h2>
+                <span><span class="topic-number">10</span>Linear & Logistic Regression</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="simple-explanation">📈 Predicting numbers and yes/no outcomes</p>
+            <div class="details">
+                <p><strong>Linear Regression:</strong> Predict a number (like price, temperature, score)</p>
+                <div class="formula">
+                    y = β₀ + β₁x₁ + β₂x₂ + ... + βₙxₙ + ε<br>
+                    Simple: y = mx + b<br>
+                    <br>
+                    <strong>Goal:</strong> Minimize Sum of Squared Errors (SSE)<br>
+                    SSE = Σ(yᵢ - ŷᵢ)²
+                </div>
+                
+                <p><strong>Logistic Regression:</strong> Predict yes/no (like pass/fail, spam/not spam)</p>
+                <div class="formula">
+                    P(Y=1) = 1 / (1 + e^(-(β₀ + β₁x₁ + ... + βₙxₙ)))<br>
+                    <br>
+                    Logit form: ln(P/(1-P)) = β₀ + β₁x₁ + ... + βₙxₙ<br>
+                    <br>
+                    Output range: 0 to 1 (probability)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Linear Regression:</div>
+                    <p>🏠 Predict house price based on size</p>
+                    <p>📊 "For every extra 100 sq ft, price increases $10,000"</p>
+                    <p>Draws a straight line through your data points</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Logistic Regression:</div>
+                    <p>📧 Is this email spam? (Yes/No)</p>
+                    <p>🎓 Will student pass? (Yes/No)</p>
+                    <p>Draws an S-curve that gives probabilities between 0 and 1</p>
+                </div>
+                
+                <div class="key-point">
+                    <strong>Simple rule:</strong> Predicting a number? → Linear. Predicting a category? → Logistic.
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; text-align: center; color: #667eea; font-style: italic;">
+            <p>💡 Click on any topic to expand and learn more!</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Remember: Statistics is just the art of learning from data 📊</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDetails(element) {
+            const details = element.querySelector('.details');
+            const icon = element.querySelector('.toggle-icon');
+            
+            details.classList.toggle('active');
+            icon.textContent = details.classList.contains('active') ? '▲' : '▼';
+        }
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Algebra - Comprehensive Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #764ba2;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+        
+        .topic {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff5f8 100%);
+            border-radius: 20px;
+            border-left: 6px solid #667eea;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .topic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .topic h2 {
+            color: #764ba2;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.8em;
+        }
+        
+        .topic-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            margin-right: 15px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+        }
+        
+        .essence {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-style: italic;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .details {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .details.active {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .definition {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #2196f3;
+            font-size: 1.05em;
+        }
+        
+        .definition-title {
+            color: #1565c0;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .definition-title::before {
+            content: "📘";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        .formula-box {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            padding: 20px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            border-left: 5px solid #fbc02d;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        
+        .formula-title {
+            color: #f57f17;
+            font-weight: bold;
+            font-family: 'Segoe UI', sans-serif;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+        }
+        
+        .intuition {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #9c27b0;
+        }
+        
+        .intuition-title {
+            color: #6a1b9a;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .intuition-title::before {
+            content: "💡";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        .example {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 3px solid #e0e7ff;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .example-title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .example-title::before {
+            content: "🎯";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .ai-connection {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #4caf50;
+        }
+        
+        .ai-connection-title {
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ai-connection-title::before {
+            content: "🤖";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        .toggle-icon {
+            font-size: 1.5em;
+            color: #667eea;
+            transition: transform 0.3s;
+        }
+        
+        .topic.open .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        .properties {
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .properties-title {
+            color: #e65100;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .geometric-meaning {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #e91e63;
+        }
+        
+        .geometric-title {
+            color: #880e4f;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .geometric-title::before {
+            content: "📐";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        .note {
+            background: #fff8e1;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            border-left: 3px solid #ffa726;
+            font-size: 0.95em;
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d32f2f;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #667eea;
+            font-style: italic;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: 15px;
+        }
+        
+        ul, ol {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        strong {
+            color: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔢 Linear Algebra</h1>
+        <div class="subtitle">The Mathematics of Transformations, Spaces, and Machine Learning</div>
+
+        <!-- TOPIC 1: Scalars, Vectors, Matrices & Tensors -->
+        <div class="topic" onclick="toggleTopic(this)">
+            <h2>
+                <span><span class="topic-number">1</span>Scalars, Vectors, Matrices & Tensors</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="essence">📦 The fundamental building blocks of linear algebra - from simple numbers to multi-dimensional data structures</p>
+            
+            <div class="details">
+                <div class="definition">
+                    <div class="definition-title">Scalar</div>
+                    <p>A <strong>scalar</strong> is a single number - a quantity with magnitude only. In linear algebra, scalars are typically real numbers (ℝ) or complex numbers (ℂ).</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Notation:</div>
+                        s ∈ ℝ  (a scalar in real numbers)<br>
+                        Examples: 5, -3.14, 0, √2
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Vector</div>
+                    <p>A <strong>vector</strong> is an ordered array of numbers. It represents a point in n-dimensional space or a direction with magnitude. Vectors can be thought of as arrows from the origin to a point.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Notation:</div>
+                        v = [v₁, v₂, ..., vₙ]ᵀ  or  v ∈ ℝⁿ<br>
+                        <br>
+                        Column vector: v = ⎡v₁⎤<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⎢v₂⎥<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⎣v₃⎦<br>
+                        <br>
+                        Row vector: v = [v₁  v₂  v₃]
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Matrix</div>
+                    <p>A <strong>matrix</strong> is a 2D array of numbers arranged in rows and columns. Matrices represent linear transformations, systems of equations, and relationships between variables.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Notation:</div>
+                        A ∈ ℝᵐˣⁿ  (m rows, n columns)<br>
+                        <br>
+                        A = ⎡a₁₁  a₁₂  a₁₃⎤<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;⎢a₂₁  a₂₂  a₂₃⎥<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;⎣a₃₁  a₃₂  a₃₃⎦<br>
+                        <br>
+                        Element notation: Aᵢⱼ = element in row i, column j
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Tensor</div>
+                    <p>A <strong>tensor</strong> is a multi-dimensional array generalizing scalars (0D), vectors (1D), and matrices (2D) to higher dimensions. Tensors are fundamental in deep learning.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Notation:</div>
+                        T ∈ ℝⁿ¹ˣⁿ²ˣⁿ³ˣ...ˣⁿᵏ<br>
+                        <br>
+                        Rank/Order:<br>
+                        • Rank 0: Scalar<br>
+                        • Rank 1: Vector<br>
+                        • Rank 2: Matrix<br>
+                        • Rank 3+: Higher-order tensor
+                    </div>
+                </div>
+
+                <div class="intuition">
+                    <div class="intuition-title">Geometric Intuition</div>
+                    <p><strong>Scalar:</strong> A point on a number line - just magnitude, no direction.</p>
+                    <p><strong>Vector:</strong> An arrow in space pointing from origin to a location. The arrow has both direction and length (magnitude).</p>
+                    <p><strong>Matrix:</strong> A transformation machine! It takes vectors as input and outputs transformed vectors. Think of it as a function that stretches, rotates, or flips space.</p>
+                    <p><strong>Tensor:</strong> Multi-dimensional grid of numbers. A 3D tensor is like a cube of numbers, 4D is like a sequence of cubes, etc.</p>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Concrete Examples</div>
+                    <p><strong>Scalar:</strong> Temperature = 25°C, Speed = 60 km/h</p>
+                    <p><strong>Vector:</strong> Position in 3D space = [3, 4, 5], RGB color = [255, 128, 0]</p>
+                    <p><strong>Matrix:</strong> Image (grayscale) = 28×28 grid of pixel values, Spreadsheet data = rows × columns</p>
+                    <p><strong>Tensor:</strong> Color image = height × width × 3 (RGB channels), Video = time × height × width × 3</p>
+                </div>
+
+                <div class="ai-connection">
+                    <div class="ai-connection-title">Connection to AI & Computer Vision</div>
+                    <p><strong>🎨 Images as Tensors:</strong> A color image is a 3D tensor (height × width × channels). For a 224×224 RGB image: shape = (224, 224, 3)</p>
+                    <p><strong>🎬 Videos as 4D Tensors:</strong> A video is frames × height × width × channels: shape = (30, 224, 224, 3) for 30 frames</p>
+                    <p><strong>🧠 Neural Networks:</strong> Weights are matrices, biases are vectors. A simple layer: output = W×input + b</p>
+                    <p><strong>📦 Batch Processing:</strong> Training on multiple images: (batch_size, height, width, channels) = (32, 224, 224, 3)</p>
+                    <p><strong>🔄 Convolution Kernels:</strong> Filters in CNNs are 4D tensors: (kernel_height, kernel_width, input_channels, output_channels)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPIC 2: Matrix Operations -->
+        <div class="topic" onclick="toggleTopic(this)">
+            <h2>
+                <span><span class="topic-number">2</span>Matrix Operations</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="essence">➕✖️ How to add, multiply, transpose, and invert matrices - the arithmetic of transformations</p>
+            
+            <div class="details">
+                <div class="definition">
+                    <div class="definition-title">Matrix Addition & Subtraction</div>
+                    <p>Matrices of the same dimensions can be added or subtracted element-wise.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Formula:</div>
+                        If A, B ∈ ℝᵐˣⁿ, then:<br>
+                        (A + B)ᵢⱼ = Aᵢⱼ + Bᵢⱼ<br>
+                        (A - B)ᵢⱼ = Aᵢⱼ - Bᵢⱼ
+                    </div>
+                    <div class="properties">
+                        <div class="properties-title">Properties:</div>
+                        • Commutative: A + B = B + A<br>
+                        • Associative: (A + B) + C = A + (B + C)<br>
+                        • Identity: A + 0 = A (0 is zero matrix)
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Scalar Multiplication</div>
+                    <p>Multiplying a matrix by a scalar multiplies every element by that scalar.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Formula:</div>
+                        If c ∈ ℝ and A ∈ ℝᵐˣⁿ, then:<br>
+                        (cA)ᵢⱼ = c · Aᵢⱼ
+                    </div>
+                    <div class="intuition">
+                        <div class="intuition-title">Geometric Meaning</div>
+                        <p>Scalar multiplication scales the transformation. Multiplying by 2 doubles all distances, by 0.5 halves them, by -1 reflects through the origin.</p>
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Matrix Multiplication</div>
+                    <p>The most important operation! Multiplying matrices combines transformations. <strong>Order matters!</strong> AB ≠ BA in general.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Formula:</div>
+                        If A ∈ ℝᵐˣⁿ and B ∈ ℝⁿˣᵖ, then C = AB ∈ ℝᵐˣᵖ<br>
+                        <br>
+                        Cᵢⱼ = Σₖ₌₁ⁿ Aᵢₖ · Bₖⱼ<br>
+                        <br>
+                        (Row i of A) · (Column j of B) = Cᵢⱼ
+                    </div>
+                    <div class="note">
+                        <strong>⚠️ Critical Rule:</strong> Number of columns in A must equal number of rows in B!<br>
+                        (m×n) × (n×p) = (m×p) ✓<br>
+                        (m×n) × (k×p) where n≠k ✗
+                    </div>
+                    <div class="properties">
+                        <div class="properties-title">Properties:</div>
+                        • NOT Commutative: AB ≠ BA (usually)<br>
+                        • Associative: (AB)C = A(BC)<br>
+                        • Distributive: A(B+C) = AB + AC<br>
+                        • Identity: AI = IA = A (I is identity matrix)
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Matrix Transpose</div>
+                    <p>The transpose of a matrix flips it over its diagonal - rows become columns and vice versa.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Formula:</div>
+                        If A ∈ ℝᵐˣⁿ, then Aᵀ ∈ ℝⁿˣᵐ<br>
+                        <br>
+                        (Aᵀ)ᵢⱼ = Aⱼᵢ
+                    </div>
+                    <div class="properties">
+                        <div class="properties-title">Properties:</div>
+                        • (Aᵀ)ᵀ = A<br>
+                        • (A + B)ᵀ = Aᵀ + Bᵀ<br>
+                        • (AB)ᵀ = BᵀAᵀ  ⚠️ (order reverses!)<br>
+                        • (cA)ᵀ = cAᵀ
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Matrix Determinant</div>
+                    <p>The determinant is a scalar value that encodes important properties of a square matrix. It tells us if the matrix is invertible and how it scales volumes.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Formulas:</div>
+                        For 2×2 matrix:<br>
+                        det(A) = |A| = |a  b| = ad - bc<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|c  d|<br>
+                        <br>
+                        For 3×3 matrix (cofactor expansion):<br>
+                        det(A) = a₁₁(a₂₂a₃₃ - a₂₃a₃₂) - a₁₂(a₂₁a₃₃ - a₂₃a₃₁) + a₁₃(a₂₁a₃₂ - a₂₂a₃₁)
+                    </div>
+                    <div class="properties">
+                        <div class="properties-title">Properties:</div>
+                        • det(AB) = det(A) · det(B)<br>
+                        • det(Aᵀ) = det(A)<br>
+                        • det(A⁻¹) = 1/det(A)  (if A is invertible)<br>
+                        • det(cA) = cⁿ · det(A)  (n is matrix size)<br>
+                        • If det(A) = 0, matrix is singular (not invertible)<br>
+                        • If det(A) ≠ 0, matrix is invertible
+                    </div>
+                    <div class="geometric-meaning">
+                        <div class="geometric-title">Geometric Interpretation</div>
+                        <p><strong>|det(A)|</strong> = scale factor for volumes</p>
+                        <p>• If |det(A)| = 2, the transformation doubles all volumes</p>
+                        <p>• If det(A) = 0, space is "squashed" to lower dimension</p>
+                        <p>• If det(A) < 0, transformation includes a reflection</p>
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Matrix Inverse</div>
+                    <p>The inverse of a matrix A (denoted A⁻¹) is the matrix that "undoes" A's transformation. It's like a reverse function.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Definition:</div>
+                        A⁻¹ is the inverse of A if:<br>
+                        A · A⁻¹ = A⁻¹ · A = I<br>
+                        <br>
+                        For 2×2 matrix:<br>
+                        A⁻¹ = (1/det(A)) · | d  -b|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-c   a|<br>
+                        <br>
+                        where A = |a  b|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|c  d|
+                    </div>
+                    <div class="note">
+                        <strong>⚠️ Critical:</strong> Inverse exists if and only if det(A) ≠ 0<br>
+                        If det(A) = 0, the matrix is singular and has no inverse.
+                    </div>
+                    <div class="properties">
+                        <div class="properties-title">Properties:</div>
+                        • (A⁻¹)⁻¹ = A<br>
+                        • (AB)⁻¹ = B⁻¹A⁻¹  ⚠️ (order reverses!)<br>
+                        • (Aᵀ)⁻¹ = (A⁻¹)ᵀ<br>
+                        • (cA)⁻¹ = (1/c)A⁻¹
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Worked Example: Matrix Multiplication</div>
+                    <p>Let's multiply two 2×2 matrices:</p>
+                    <div class="formula-box">
+                        A = |2  1|    B = |3  0|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;|4  3|        |1  2|<br>
+                        <br>
+                        C = AB = |2·3+1·1  2·0+1·2| = |7  2|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|4·3+3·1  4·0+3·2|   |15 6|
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Worked Example: Finding Inverse</div>
+                    <div class="formula-box">
+                        A = |3  2|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;|1  4|<br>
+                        <br>
+                        Step 1: det(A) = 3·4 - 2·1 = 12 - 2 = 10 ≠ 0 ✓ (invertible)<br>
+                        <br>
+                        Step 2: A⁻¹ = (1/10) · | 4  -2| = | 0.4  -0.2|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-1   3|   |-0.1   0.3|<br>
+                        <br>
+                        Verify: A · A⁻¹ = I ✓
+                    </div>
+                </div>
+
+                <div class="ai-connection">
+                    <div class="ai-connection-title">Connection to AI & Computer Vision</div>
+                    <p><strong>🧮 Forward Pass in Neural Networks:</strong> Output = W·X + b (matrix multiplication!)</p>
+                    <p><strong>🎯 Batch Processing:</strong> Process 32 images at once: (32×784) × (784×128) = (32×128)</p>
+                    <p><strong>📐 Transpose in Backpropagation:</strong> Gradients flow backwards using Wᵀ</p>
+                    <p><strong>🔄 Image Transformations:</strong> Rotation, scaling, shearing = matrix multiplication with transformation matrix</p>
+                    <p><strong>🎨 Color Space Conversion:</strong> RGB to YCbCr = matrix multiplication</p>
+                    <p><strong>⚡ Solving Linear Systems:</strong> Camera calibration, least squares = uses matrix inverse (or pseudoinverse)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPIC 3: Matrix Rank & Linear Independence -->
+        <div class="topic" onclick="toggleTopic(this)">
+            <h2>
+                <span><span class="topic-number">3</span>Matrix Rank & Linear Independence</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="essence">📏 Understanding the "effective dimensionality" of matrices and when vectors are truly independent</p>
+            
+            <div class="details">
+                <div class="definition">
+                    <div class="definition-title">Linear Independence</div>
+                    <p>A set of vectors {v₁, v₂, ..., vₖ} is <strong>linearly independent</strong> if no vector can be written as a linear combination of the others. In other words, the only solution to c₁v₁ + c₂v₂ + ... + cₖvₖ = 0 is when all cᵢ = 0.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Mathematical Definition:</div>
+                        Vectors v₁, v₂, ..., vₖ are linearly independent if:<br>
+                        c₁v₁ + c₂v₂ + ... + cₖvₖ = 0  ⟹  c₁ = c₂ = ... = cₖ = 0<br>
+                        <br>
+                        Otherwise, they are linearly dependent.
+                    </div>
+                    <div class="intuition">
+                        <div class="intuition-title">Intuitive Understanding</div>
+                        <p><strong>Independent:</strong> Each vector adds a new direction. You can't reach one by combining others.</p>
+                        <p><strong>Dependent:</strong> At least one vector is redundant - it lies in the space spanned by others.</p>
+                        <p><strong>2D Example:</strong> [1,0] and [0,1] are independent (point in different directions). But [1,0], [0,1], and [1,1] are dependent because [1,1] = 1·[1,0] + 1·[0,1]</p>
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Matrix Rank</div>
+                    <p>The <strong>rank</strong> of a matrix is the maximum number of linearly independent column (or row) vectors. It represents the dimension of the space spanned by the matrix's columns.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Definition:</div>
+                        rank(A) = dimension of column space of A<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= dimension of row space of A<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= number of linearly independent columns (or rows)<br>
+                        <br>
+                        For A ∈ ℝᵐˣⁿ:<br>
+                        0 ≤ rank(A) ≤ min(m, n)
+                    </div>
+                    <div class="properties">
+                        <div class="properties-title">Key Properties:</div>
+                        • <strong>Full rank:</strong> rank(A) = min(m,n) - maximum possible rank<br>
+                        • <strong>Rank deficient:</strong> rank(A) < min(m,n) - "missing" information<br>
+                        • rank(A) = rank(Aᵀ)<br>
+                        • rank(AB) ≤ min(rank(A), rank(B))<br>
+                        • If A is invertible, rank(A) = n (square matrix n×n)
+                    </div>
+                </div>
+
+                <div class="geometric-meaning">
+                    <div class="geometric-title">Geometric Interpretation of Rank</div>
+                    <p><strong>Rank = Dimension of Output Space</strong></p>
+                    <p>• <strong>Rank 1:</strong> All column vectors lie on a line through origin (1D subspace)</p>
+                    <p>• <strong>Rank 2:</strong> Columns span a plane (2D subspace)</p>
+                    <p>• <strong>Rank 3:</strong> Columns span 3D space</p>
+                    <p><strong>Visual Example:</strong> A 3×3 matrix with rank 2 "squashes" 3D space into a 2D plane. Information is lost!</p>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Example 1: Testing Linear Independence</div>
+                    <div class="formula-box">
+                        Are v₁ = [1, 2, 3], v₂ = [2, 4, 6], v₃ = [1, 0, 1] independent?<br>
+                        <br>
+                        Notice: v₂ = 2·v₁ ⟹ v₁ and v₂ are linearly DEPENDENT<br>
+                        <br>
+                        So {v₁, v₂, v₃} are linearly dependent.<br>
+                        But {v₁, v₃} are linearly independent (no scalar c where v₃ = c·v₁)
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Example 2: Finding Matrix Rank</div>
+                    <div class="formula-box">
+                        A = |1  2  3|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;|2  4  6|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;|1  1  2|<br>
+                        <br>
+                        Notice: Row 2 = 2 × Row 1 (linearly dependent rows)<br>
+                        <br>
+                        After row reduction:<br>
+                        |1  2  3|<br>
+                        |0  0  0|  ← Row of zeros<br>
+                        |0 -1 -1|<br>
+                        <br>
+                        rank(A) = 2 (only 2 non-zero rows after reduction)
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Connection to Systems of Equations</div>
+                    <p>For a system Ax = b:</p>
+                    <div class="formula-box">
+                        • If rank(A) = rank([A|b]) = n ⟹ unique solution<br>
+                        • If rank(A) = rank([A|b]) < n ⟹ infinite solutions<br>
+                        • If rank(A) < rank([A|b]) ⟹ no solution (inconsistent)
+                    </div>
+                </div>
+
+                <div class="ai-connection">
+                    <div class="ai-connection-title">Connection to AI & Computer Vision</div>
+                    <p><strong>📉 Dimensionality Reduction:</strong> PCA finds a low-rank approximation of data. If your data matrix has rank 50 instead of 1000, you can compress it significantly!</p>
+                    <p><strong>🎯 Feature Correlation:</strong> If features are linearly dependent (rank deficient), some are redundant - feature selection can remove them</p>
+                    <p><strong>🔍 Image Compression:</strong> Low-rank matrix approximation (SVD) compresses images by keeping only important "directions"</p>
+                    <p><strong>⚠️ Multicollinearity:</strong> In regression, if input features are linearly dependent, the model becomes unstable (matrix not invertible)</p>
+                    <p><strong>🧠 Neural Network Expressiveness:</strong> Rank of weight matrices determines the "effective capacity" of a layer</p>
+                    <p><strong>📐 Camera Calibration:</strong> Needs full-rank matrices to solve for camera parameters uniquely</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Continue with remaining topics in next message due to length... -->
+
+        <div class="footer">
+            <p>💡 <strong>Click on each topic to expand and explore!</strong></p>
+            <p style="margin-top: 10px;">Linear Algebra is the language of modern AI and machine learning 🤖</p>
+            <p style="margin-top: 5px; font-size: 0.9em;">Created for Mahad's learning journey in Computer Science & AI</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleTopic(element) {
+            const details = element.querySelector('.details');
+            const icon = element.querySelector('.toggle-icon');
+            const isOpen = details.classList.contains('active');
+            
+            details.classList.toggle('active');
+            element.classList.toggle('open');
+            icon.textContent = isOpen ? '▼' : '▲';
+        }
+    </script>
+</body>
+</html>
+        <!-- TOPIC 4: Eigenvalues & Eigenvectors -->
+        <div class="topic" onclick="toggleTopic(this)">
+            <h2>
+                <span><span class="topic-number">4</span>Eigenvalues & Eigenvectors</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="essence">⭐ Special vectors that don't change direction under transformation - the "essence" of a matrix</p>
+            
+            <div class="details">
+                <div class="definition">
+                    <div class="definition-title">The Fundamental Equation</div>
+                    <p>An <strong>eigenvector</strong> of a matrix A is a non-zero vector v that only gets scaled (not rotated) when A is applied to it. The scale factor is the <strong>eigenvalue</strong> λ.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Eigenvalue Equation:</div>
+                        Av = λv<br>
+                        <br>
+                        Where:<br>
+                        • A ∈ ℝⁿˣⁿ is the matrix<br>
+                        • v ∈ ℝⁿ is the eigenvector (v ≠ 0)<br>
+                        • λ ∈ ℝ (or ℂ) is the eigenvalue<br>
+                        <br>
+                        Rearranged:<br>
+                        (A - λI)v = 0
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Finding Eigenvalues</div>
+                    <p>To find eigenvalues, we solve the <strong>characteristic equation</strong>:</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Characteristic Equation:</div>
+                        det(A - λI) = 0<br>
+                        <br>
+                        This gives a polynomial in λ called the characteristic polynomial.<br>
+                        For an n×n matrix, you get n eigenvalues (counting multiplicity).
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Finding Eigenvectors</div>
+                    <p>Once you have an eigenvalue λ, find its eigenvector by solving:</p>
+                    <div class="formula-box">
+                        (A - λI)v = 0<br>
+                        <br>
+                        This is a homogeneous system. The solution space (nullspace) gives you the eigenvectors.
+                    </div>
+                </div>
+
+                <div class="geometric-meaning">
+                    <div class="geometric-title">Geometric Meaning</div>
+                    <p><strong>Eigenvectors</strong> are the "special directions" in space that the transformation stretches/shrinks along.</p>
+                    <p><strong>Eigenvalues</strong> tell you <em>how much</em> stretching/shrinking happens:</p>
+                    <p>• λ > 1: stretches the vector</p>
+                    <p>• 0 < λ < 1: shrinks the vector</p>
+                    <p>• λ < 0: stretches/shrinks AND flips direction</p>
+                    <p>• λ = 0: collapses to zero (singular matrix!)</p>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Worked Example: 2×2 Matrix</div>
+                    <div class="formula-box">
+                        A = |3  1|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;|0  2|<br>
+                        <br>
+                        Step 1: Find eigenvalues<br>
+                        det(A - λI) = det(|3-λ  1  |) = (3-λ)(2-λ) - 0 = 0<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 0   2-λ|<br>
+                        <br>
+                        (3-λ)(2-λ) = 0  ⟹  λ₁ = 3, λ₂ = 2<br>
+                        <br>
+                        Step 2: Find eigenvector for λ₁ = 3<br>
+                        (A - 3I)v = |0  1| |v₁| = |0|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|0 -1| |v₂|   |0|<br>
+                        <br>
+                        This gives v₂ = 0, so v₁ is free.<br>
+                        Eigenvector: v₁ = |1| (or any scalar multiple)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|0|<br>
+                        <br>
+                        Step 3: Find eigenvector for λ₂ = 2<br>
+                        (A - 2I)v = |1  1| |v₁| = |0|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|0  0| |v₂|   |0|<br>
+                        <br>
+                        This gives v₁ + v₂ = 0  ⟹  v₂ = -v₁<br>
+                        Eigenvector: v₂ = | 1| (or any scalar multiple)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-1|
+                    </div>
+                </div>
+
+                <div class="properties">
+                    <div class="properties-title">Important Properties</div>
+                    • Sum of eigenvalues = trace(A) = Σ Aᵢᵢ<br>
+                    • Product of eigenvalues = det(A)<br>
+                    • If A is symmetric, all eigenvalues are real<br>
+                    • If A is positive definite, all eigenvalues > 0<br>
+                    • Eigenvectors corresponding to distinct eigenvalues are linearly independent
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Diagonalization</div>
+                    <p>If a matrix A has n linearly independent eigenvectors, it can be diagonalized:</p>
+                    <div class="formula-box">
+                        A = PDP⁻¹<br>
+                        <br>
+                        Where:<br>
+                        • P = matrix with eigenvectors as columns<br>
+                        • D = diagonal matrix with eigenvalues on diagonal<br>
+                        <br>
+                        Useful because: Aⁿ = PDⁿP⁻¹ (easy to compute!)
+                    </div>
+                </div>
+
+                <div class="ai-connection">
+                    <div class="ai-connection-title">Connection to AI & Computer Vision</div>
+                    <p><strong>📊 Principal Component Analysis (PCA):</strong> Eigenvectors of covariance matrix = principal components (directions of maximum variance). Eigenvalues = amount of variance explained.</p>
+                    <p><strong>🎨 Image Compression:</strong> Keep eigenvectors with largest eigenvalues, discard the rest = compression!</p>
+                    <p><strong>🔍 Face Recognition (Eigenfaces):</strong> Eigenvectors of face covariance matrix capture key facial features</p>
+                    <p><strong>📈 PageRank Algorithm:</strong> Google's search ranking = principal eigenvector of web link matrix</p>
+                    <p><strong>🧠 Neural Network Stability:</strong> Eigenvalues of weight matrices determine if training is stable (gradient explosion/vanishing)</p>
+                    <p><strong>⚡ Spectral Clustering:</strong> Uses eigenvectors of graph Laplacian to cluster data</p>
+                    <p><strong>🎯 Object Recognition:</strong> Covariance descriptors use eigenvalues for rotation-invariant feature matching</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPIC 5: Matrix Decompositions (SVD) -->
+        <div class="topic" onclick="toggleTopic(this)">
+            <h2>
+                <span><span class="topic-number">5</span>Matrix Decompositions (SVD)</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="essence">🔨 Breaking matrices into simpler pieces - the Swiss Army knife of linear algebra</p>
+            
+            <div class="details">
+                <div class="definition">
+                    <div class="definition-title">Singular Value Decomposition (SVD)</div>
+                    <p>SVD is THE most important matrix factorization. Any matrix (even non-square!) can be decomposed into three matrices that reveal its fundamental structure.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">SVD Theorem:</div>
+                        For any matrix A ∈ ℝᵐˣⁿ, there exists a factorization:<br>
+                        <br>
+                        A = UΣVᵀ<br>
+                        <br>
+                        Where:<br>
+                        • U ∈ ℝᵐˣᵐ is orthogonal (UᵀU = I)<br>
+                        &nbsp;&nbsp;Columns of U = left singular vectors<br>
+                        • Σ ∈ ℝᵐˣⁿ is diagonal with σ₁ ≥ σ₂ ≥ ... ≥ σᵣ ≥ 0<br>
+                        &nbsp;&nbsp;Diagonal entries = singular values<br>
+                        • V ∈ ℝⁿˣⁿ is orthogonal (VᵀV = I)<br>
+                        &nbsp;&nbsp;Columns of V = right singular vectors<br>
+                        • r = rank(A)
+                    </div>
+                </div>
+
+                <div class="geometric-meaning">
+                    <div class="geometric-title">Geometric Interpretation</div>
+                    <p>SVD tells us that <em>any</em> linear transformation can be decomposed into three steps:</p>
+                    <p><strong>1. Vᵀ:</strong> Rotate in input space (change of basis)</p>
+                    <p><strong>2. Σ:</strong> Scale along coordinate axes (stretch/shrink)</p>
+                    <p><strong>3. U:</strong> Rotate in output space (another change of basis)</p>
+                    <p>So: <strong>A = (rotation) × (scaling) × (rotation)</strong></p>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Relationship to Eigenvalues</div>
+                    <div class="formula-box">
+                        • Singular values σᵢ are square roots of eigenvalues of AᵀA:<br>
+                        &nbsp;&nbsp;σᵢ = √λᵢ(AᵀA)<br>
+                        <br>
+                        • Left singular vectors (U) = eigenvectors of AAᵀ<br>
+                        • Right singular vectors (V) = eigenvectors of AᵀA<br>
+                        <br>
+                        Note: Even if A isn't symmetric, AᵀA and AAᵀ are!
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Reduced/Truncated SVD</div>
+                    <p>For practical applications, we often use truncated SVD keeping only k largest singular values:</p>
+                    <div class="formula-box">
+                        A ≈ Aₖ = UₖΣₖVₖᵀ<br>
+                        <br>
+                        Where we keep only:<br>
+                        • First k columns of U<br>
+                        • First k singular values in Σ<br>
+                        • First k columns of V<br>
+                        <br>
+                        This gives the best rank-k approximation of A!
+                    </div>
+                    <div class="note">
+                        <strong>Eckart-Young Theorem:</strong> Truncated SVD gives the optimal low-rank approximation in terms of Frobenius norm and spectral norm.
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">SVD for Image Compression</div>
+                    <div class="formula-box">
+                        Original image: 1000×1000 grayscale = 1,000,000 numbers<br>
+                        <br>
+                        After SVD: A = UΣVᵀ<br>
+                        Keep only k=50 singular values<br>
+                        <br>
+                        Storage needed:<br>
+                        • U: 1000×50 = 50,000 numbers<br>
+                        • Σ: 50 numbers<br>
+                        • V: 1000×50 = 50,000 numbers<br>
+                        Total: ~100,000 numbers (10× compression!)<br>
+                        <br>
+                        Quality loss: Usually minimal with proper k
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Other Important Decompositions</div>
+                    <p><strong>LU Decomposition:</strong> A = LU (Lower × Upper triangular)</p>
+                    <p>• Used for solving linear systems efficiently</p>
+                    <p>• Gaussian elimination in matrix form</p>
+                    <br>
+                    <p><strong>QR Decomposition:</strong> A = QR (Orthogonal × Upper triangular)</p>
+                    <p>• Used in solving least squares problems</p>
+                    <p>• Foundation of many eigenvalue algorithms</p>
+                    <br>
+                    <p><strong>Cholesky Decomposition:</strong> A = LLᵀ (for positive definite matrices)</p>
+                    <p>• Faster than LU for positive definite systems</p>
+                    <p>• Used in optimization and machine learning</p>
+                </div>
+
+                <div class="ai-connection">
+                    <div class="ai-connection-title">Connection to AI & Computer Vision</div>
+                    <p><strong>🗜️ Dimensionality Reduction:</strong> PCA uses SVD internally! Keep top k components = truncated SVD</p>
+                    <p><strong>🎨 Image Compression:</strong> JPEG-like compression using SVD - keep significant singular values only</p>
+                    <p><strong>🔍 Recommender Systems:</strong> Netflix Prize used SVD to predict movie ratings from sparse user-movie matrix</p>
+                    <p><strong>📝 Latent Semantic Analysis:</strong> SVD on document-term matrix finds semantic topics</p>
+                    <p><strong>🧹 Noise Reduction:</strong> Truncated SVD removes noise (small singular values = noise)</p>
+                    <p><strong>🎯 Computer Vision:</strong> Structure from Motion uses SVD to recover 3D structure from 2D images</p>
+                    <p><strong>🧠 Neural Network Compression:</strong> SVD compresses weight matrices in pretrained networks</p>
+                    <p><strong>📊 Data Preprocessing:</strong> Whitening transformation uses SVD to decorrelate features</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPIC 6: Principal Component Analysis (PCA) -->
+        <div class="topic" onclick="toggleTopic(this)">
+            <h2>
+                <span><span class="topic-number">6</span>Principal Component Analysis (PCA)</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="essence">📐 Finding the most important directions in your data - dimensionality reduction done right</p>
+            
+            <div class="details">
+                <div class="definition">
+                    <div class="definition-title">What is PCA?</div>
+                    <p><strong>Principal Component Analysis</strong> finds orthogonal directions (principal components) that capture maximum variance in the data. It's a way to reduce dimensions while retaining the most important information.</p>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">The PCA Algorithm</div>
+                    <div class="formula-box">
+                        <div class="formula-title">Step-by-Step Process:</div>
+                        Given data matrix X ∈ ℝⁿˣᵈ (n samples, d features)<br>
+                        <br>
+                        <strong>Step 1: Center the data</strong><br>
+                        X̃ = X - mean(X)  (subtract mean from each feature)<br>
+                        <br>
+                        <strong>Step 2: Compute covariance matrix</strong><br>
+                        C = (1/n)X̃ᵀX̃ ∈ ℝᵈˣᵈ<br>
+                        <br>
+                        <strong>Step 3: Find eigenvalues & eigenvectors of C</strong><br>
+                        Cv = λv<br>
+                        <br>
+                        <strong>Step 4: Sort eigenvectors by eigenvalue (descending)</strong><br>
+                        λ₁ ≥ λ₂ ≥ ... ≥ λᵈ<br>
+                        <br>
+                        <strong>Step 5: Keep top k eigenvectors</strong><br>
+                        W = [v₁, v₂, ..., vₖ] ∈ ℝᵈˣᵏ<br>
+                        <br>
+                        <strong>Step 6: Project data onto principal components</strong><br>
+                        Z = X̃W ∈ ℝⁿˣᵏ  (reduced dimensions!)
+                    </div>
+                </div>
+
+                <div class="geometric-meaning">
+                    <div class="geometric-title">Geometric Intuition</div>
+                    <p>Imagine a football-shaped cloud of 3D points:</p>
+                    <p><strong>PC1:</strong> The longest axis of the football (maximum variance direction)</p>
+                    <p><strong>PC2:</strong> The second-longest axis, perpendicular to PC1</p>
+                    <p><strong>PC3:</strong> The shortest axis, perpendicular to both</p>
+                    <p>By projecting onto PC1 and PC2, you get a 2D representation that captures most of the 3D structure!</p>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Variance Explained</div>
+                    <p>Each principal component captures a portion of the total variance:</p>
+                    <div class="formula-box">
+                        Variance explained by PCᵢ = λᵢ / Σⱼλⱼ<br>
+                        <br>
+                        Cumulative variance = Σᵢ₌₁ᵏ λᵢ / Σⱼ₌₁ᵈ λⱼ<br>
+                        <br>
+                        Common practice: Keep k components that explain 95% or 99% of variance
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Practical Example: MNIST Digits</div>
+                    <div class="formula-box">
+                        MNIST images: 28×28 pixels = 784 dimensions<br>
+                        <br>
+                        Apply PCA:<br>
+                        • Keep top 50 components → ~95% variance retained<br>
+                        • Compression: 784 → 50 dimensions (15.7× smaller!)<br>
+                        <br>
+                        Benefits:<br>
+                        • Faster training (50 features vs 784)<br>
+                        • Less overfitting (removed noise)<br>
+                        • Easier visualization (can plot first 2-3 PCs)
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">PCA via SVD (Faster Method)</div>
+                    <p>Instead of computing covariance matrix explicitly, use SVD directly:</p>
+                    <div class="formula-box">
+                        X̃ = UΣVᵀ  (SVD of centered data)<br>
+                        <br>
+                        Then:<br>
+                        • Principal components = columns of V<br>
+                        • Projected data = UΣ<br>
+                        • Variance = σᵢ² / n<br>
+                        <br>
+                        This is numerically more stable and faster!
+                    </div>
+                </div>
+
+                <div class="properties">
+                    <div class="properties-title">Key Properties of PCA</div>
+                    • Principal components are orthogonal (uncorrelated)<br>
+                    • PCs are ordered by variance (PC1 > PC2 > ...)<br>
+                    • PCA is a linear transformation<br>
+                    • PCA minimizes reconstruction error for given k<br>
+                    • PCA is sensitive to scaling (normalize features first!)<br>
+                    • PCA assumes linear relationships
+                </div>
+
+                <div class="note">
+                    <strong>⚠️ Important:</strong> Always standardize/normalize your data before PCA if features have different scales (e.g., height in meters vs income in dollars). Otherwise, large-scale features will dominate!
+                </div>
+
+                <div class="ai-connection">
+                    <div class="ai-connection-title">Connection to AI & Computer Vision</div>
+                    <p><strong>📸 Face Recognition (Eigenfaces):</strong> PCA on face images → each PC is an "eigenface". Any face ≈ weighted sum of eigenfaces!</p>
+                    <p><strong>🎨 Image Preprocessing:</strong> Reduce dimensionality before feeding to neural networks</p>
+                    <p><strong>📊 Feature Engineering:</strong> Create new features that are linear combinations of original ones</p>
+                    <p><strong>🔍 Anomaly Detection:</strong> Points far from principal subspace = anomalies</p>
+                    <p><strong>🗜️ Data Compression:</strong> Store data in lower dimensions, reconstruct when needed</p>
+                    <p><strong>📈 Visualization:</strong> Plot first 2-3 PCs to visualize high-dimensional data</p>
+                    <p><strong>🧹 Noise Reduction:</strong> Small PCs often represent noise - discard them!</p>
+                    <p><strong>⚡ Speed Up Training:</strong> Fewer features = faster model training</p>
+                    <p><strong>🎯 Transfer Learning:</strong> PCA on pretrained network features for downstream tasks</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(element) {
+            const details = element.querySelector('.details');
+            const icon = element.querySelector('.toggle-icon');
+            const isOpen = details.classList.contains('active');
+            
+            details.classList.toggle('active');
+            element.classList.toggle('open');
+            icon.textContent = isOpen ? '▼' : '▲';
+        }
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus - Comprehensive Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #f5576c;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #f093fb;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+        
+        .topic {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #fff5f8 0%, #fef8ff 100%);
+            border-radius: 20px;
+            border-left: 6px solid #f5576c;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .topic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(245, 87, 108, 0.3);
+        }
+        
+        .topic h2 {
+            color: #f093fb;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.8em;
+        }
+        
+        .topic-number {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            margin-right: 15px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(245, 87, 108, 0.4);
+        }
+        
+        .essence {
+            color: #f5576c;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-style: italic;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #f5576c;
+        }
+        
+        .details {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .details.active {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .definition {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #2196f3;
+            font-size: 1.05em;
+        }
+        
+        .definition-title {
+            color: #1565c0;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .definition-title::before {
+            content: "📘";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        .formula-box {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            padding: 20px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            border-left: 5px solid #fbc02d;
+            font-size: 1.1em;
+            overflow-x: auto;
+        }
+        
+        .formula-title {
+            color: #f57f17;
+            font-weight: bold;
+            font-family: 'Segoe UI', sans-serif;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+        }
+        
+        .intuition {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #9c27b0;
+        }
+        
+        .intuition-title {
+            color: #6a1b9a;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .intuition-title::before {
+            content: "💡";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        .example {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 3px solid #ffe0e8;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .example-title {
+            color: #f5576c;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .example-title::before {
+            content: "🎯";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .ai-connection {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #4caf50;
+        }
+        
+        .ai-connection-title {
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ai-connection-title::before {
+            content: "🤖";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        .toggle-icon {
+            font-size: 1.5em;
+            color: #f5576c;
+            transition: transform 0.3s;
+        }
+        
+        .topic.open .toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        .rules-box {
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .rules-title {
+            color: #e65100;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .geometric-meaning {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #e91e63;
+        }
+        
+        .geometric-title {
+            color: #880e4f;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .geometric-title::before {
+            content: "📐";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+        
+        .note {
+            background: #fff8e1;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            border-left: 3px solid #ffa726;
+            font-size: 0.95em;
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d32f2f;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #f5576c;
+            font-style: italic;
+            padding: 20px;
+            background: #fff5f8;
+            border-radius: 15px;
+        }
+        
+        ul, ol {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        strong {
+            color: #f093fb;
+        }
+
+        .visual-demo {
+            background: #e8eaf6;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #5c6bc0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>∫ Calculus</h1>
+        <div class="subtitle">The Mathematics of Change, Motion, and Optimization</div>
+
+        <!-- TOPIC 1: Derivatives & Gradients -->
+        <div class="topic" onclick="toggleTopic(this)">
+            <h2>
+                <span><span class="topic-number">1</span>Derivatives & Gradients</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="essence">📈 Measuring rates of change - the foundation of optimization and learning</p>
+            
+            <div class="details">
+                <div class="definition">
+                    <div class="definition-title">The Derivative: Rate of Change</div>
+                    <p>The <strong>derivative</strong> measures how fast a function changes. It's the slope of the tangent line at a point, or the instantaneous rate of change.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Formal Definition (Limit):</div>
+                        f'(x) = lim[h→0] (f(x+h) - f(x)) / h<br>
+                        <br>
+                        Alternative notation:<br>
+                        • f'(x) = df/dx = dy/dx = Df(x)
+                    </div>
+                </div>
+
+                <div class="intuition">
+                    <div class="intuition-title">What Does It Mean?</div>
+                    <p><strong>Physical meaning:</strong> If f(t) = position, then f'(t) = velocity (how fast position changes)</p>
+                    <p><strong>Geometric meaning:</strong> Slope of the curve at a point</p>
+                    <p><strong>Rate meaning:</strong> If temperature rises by f'(t) = 2°C/hour, it's getting 2 degrees warmer each hour</p>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Common Derivatives (Rules to Memorize!)</div>
+                    <div class="formula-box">
+                        <div class="formula-title">Basic Functions:</div>
+                        d/dx (c) = 0              (constant)<br>
+                        d/dx (x) = 1              (identity)<br>
+                        d/dx (xⁿ) = nxⁿ⁻¹         (power rule)<br>
+                        d/dx (eˣ) = eˣ            (exponential)<br>
+                        d/dx (ln x) = 1/x         (natural log)<br>
+                        d/dx (sin x) = cos x<br>
+                        d/dx (cos x) = -sin x<br>
+                        d/dx (tan x) = sec²x<br>
+                        d/dx (aˣ) = aˣ ln a
+                    </div>
+                </div>
+
+                <div class="rules-box">
+                    <div class="rules-title">Derivative Rules (Essential!):</div>
+                    <strong>Sum Rule:</strong> (f + g)' = f' + g'<br>
+                    <strong>Constant Multiple:</strong> (cf)' = c·f'<br>
+                    <strong>Product Rule:</strong> (fg)' = f'g + fg'<br>
+                    <strong>Quotient Rule:</strong> (f/g)' = (f'g - fg') / g²<br>
+                    <strong>Chain Rule:</strong> (f(g(x)))' = f'(g(x))·g'(x)
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Example: Product Rule</div>
+                    <div class="formula-box">
+                        Find derivative of: f(x) = x²·sin(x)<br>
+                        <br>
+                        Using product rule: (fg)' = f'g + fg'<br>
+                        f = x², g = sin(x)<br>
+                        f' = 2x, g' = cos(x)<br>
+                        <br>
+                        Answer: f'(x) = 2x·sin(x) + x²·cos(x)
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Example: Chain Rule</div>
+                    <div class="formula-box">
+                        Find derivative of: f(x) = (x² + 1)³<br>
+                        <br>
+                        Let u = x² + 1, so f(x) = u³<br>
+                        <br>
+                        Chain rule: df/dx = df/du · du/dx<br>
+                        df/du = 3u² = 3(x² + 1)²<br>
+                        du/dx = 2x<br>
+                        <br>
+                        Answer: f'(x) = 3(x² + 1)² · 2x = 6x(x² + 1)²
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Partial Derivatives</div>
+                    <p>For functions of multiple variables f(x, y, z, ...), we take derivatives with respect to one variable at a time, treating others as constants.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Notation:</div>
+                        ∂f/∂x = partial derivative with respect to x<br>
+                        <br>
+                        Example: f(x,y) = x²y + 3xy²<br>
+                        <br>
+                        ∂f/∂x = 2xy + 3y²  (treat y as constant)<br>
+                        ∂f/∂y = x² + 6xy    (treat x as constant)
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">The Gradient Vector</div>
+                    <p>The <strong>gradient</strong> is a vector of all partial derivatives. It points in the direction of steepest ascent!</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Definition:</div>
+                        ∇f = grad(f) = [∂f/∂x₁, ∂f/∂x₂, ..., ∂f/∂xₙ]ᵀ<br>
+                        <br>
+                        For f(x,y): ∇f = [∂f/∂x]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[∂f/∂y]<br>
+                        <br>
+                        For f(x,y,z): ∇f = [∂f/∂x, ∂f/∂y, ∂f/∂z]ᵀ
+                    </div>
+                    <div class="note">
+                        <strong>Key Properties:</strong><br>
+                        • ∇f points in direction of steepest increase<br>
+                        • -∇f points in direction of steepest decrease<br>
+                        • |∇f| = magnitude of steepest slope<br>
+                        • If ∇f = 0, we're at a critical point (min, max, or saddle)
+                    </div>
+                </div>
+
+                <div class="geometric-meaning">
+                    <div class="geometric-title">Gradient Visualization</div>
+                    <p>Imagine hiking on a mountain where height = f(x,y):</p>
+                    <p>• <strong>∇f</strong> = arrow pointing straight uphill (steepest ascent)</p>
+                    <p>• <strong>-∇f</strong> = arrow pointing straight downhill (steepest descent)</p>
+                    <p>• Following -∇f will take you to the valley (local minimum) fastest!</p>
+                </div>
+
+                <div class="ai-connection">
+                    <div class="ai-connection-title">Connection to AI & Computer Vision</div>
+                    <p><strong>🎯 Gradient Descent:</strong> THE optimization algorithm in ML! Update: θ = θ - α·∇L(θ)</p>
+                    <p><strong>🧠 Backpropagation:</strong> Computing gradients of loss w.r.t. weights using chain rule</p>
+                    <p><strong>📉 Loss Function Optimization:</strong> Minimize loss by following -∇L (downhill)</p>
+                    <p><strong>🎨 Edge Detection:</strong> Gradient of image intensity finds edges (high |∇I| = edge)</p>
+                    <p><strong>🔍 Sobel/Scharr Filters:</strong> Approximate image gradients for feature detection</p>
+                    <p><strong>📊 Learning Rate:</strong> α controls how big steps we take along gradient</p>
+                    <p><strong>⚡ Momentum & Adam:</strong> Advanced optimizers that use gradient information</p>
+                    <p><strong>🎯 Vanishing Gradients:</strong> Problem when gradients become too small in deep networks</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPIC 2: Gradient Descent Algorithm -->
+        <div class="topic" onclick="toggleTopic(this)">
+            <h2>
+                <span><span class="topic-number">2</span>Gradient Descent Algorithm</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="essence">⬇️ The workhorse of machine learning - iteratively finding minima using gradients</p>
+            
+            <div class="details">
+                <div class="definition">
+                    <div class="definition-title">What is Gradient Descent?</div>
+                    <p><strong>Gradient Descent</strong> is an iterative optimization algorithm for finding the minimum of a function. It's how neural networks learn!</p>
+                    <div class="formula-box">
+                        <div class="formula-title">The Algorithm:</div>
+                        <strong>Goal:</strong> Minimize loss function L(θ)<br>
+                        <br>
+                        <strong>Repeat until convergence:</strong><br>
+                        1. Compute gradient: g = ∇L(θ)<br>
+                        2. Update parameters: θ = θ - α·g<br>
+                        <br>
+                        Where:<br>
+                        • θ = parameters (weights) we're optimizing<br>
+                        • α = learning rate (step size)<br>
+                        • ∇L(θ) = gradient of loss function
+                    </div>
+                </div>
+
+                <div class="intuition">
+                    <div class="intuition-title">The Mountain Analogy</div>
+                    <p>Imagine you're on a foggy mountain and want to reach the valley:</p>
+                    <p>1. <strong>Check slope:</strong> ∇L(θ) tells you which way is downhill</p>
+                    <p>2. <strong>Take a step:</strong> Move in the -∇L direction (downhill)</p>
+                    <p>3. <strong>Step size:</strong> α controls how big your steps are</p>
+                    <p>4. <strong>Repeat:</strong> Keep stepping until you reach the bottom!</p>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Types of Gradient Descent</div>
+                    <div class="formula-box">
+                        <strong>1. Batch Gradient Descent:</strong><br>
+                        Uses entire dataset to compute gradient<br>
+                        θ = θ - α·(1/n)Σᵢ₌₁ⁿ ∇L(θ; xᵢ, yᵢ)<br>
+                        + Accurate gradient<br>
+                        - Slow for large datasets<br>
+                        <br>
+                        <strong>2. Stochastic Gradient Descent (SGD):</strong><br>
+                        Uses one random sample at a time<br>
+                        θ = θ - α·∇L(θ; xᵢ, yᵢ)  (single sample)<br>
+                        + Fast, can escape local minima<br>
+                        - Noisy updates, can be unstable<br>
+                        <br>
+                        <strong>3. Mini-Batch Gradient Descent:</strong><br>
+                        Uses small batch of samples (e.g., 32, 64, 128)<br>
+                        θ = θ - α·(1/m)Σᵢ₌₁ᵐ ∇L(θ; xᵢ, yᵢ)  (m samples)<br>
+                        + Good balance: fast & stable<br>
+                        This is what's used in practice!
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Choosing Learning Rate α</div>
+                    <div class="formula-box">
+                        <strong>Too small (α = 0.0001):</strong><br>
+                        • Slow convergence<br>
+                        • Takes forever to reach minimum<br>
+                        • But very stable<br>
+                        <br>
+                        <strong>Too large (α = 10):</strong><br>
+                        • Overshoots minimum<br>
+                        • Diverges (explodes!)<br>
+                        • Training fails<br>
+                        <br>
+                        <strong>Just right (α = 0.01):</strong><br>
+                        • Fast convergence<br>
+                        • Reaches minimum<br>
+                        • Common values: 0.001, 0.01, 0.1
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Worked Example: Simple 1D Function</div>
+                    <div class="formula-box">
+                        Minimize: f(x) = x² + 4x + 1<br>
+                        <br>
+                        Gradient: f'(x) = 2x + 4<br>
+                        <br>
+                        Starting point: x₀ = 2<br>
+                        Learning rate: α = 0.1<br>
+                        <br>
+                        <strong>Iteration 1:</strong><br>
+                        g = f'(2) = 2(2) + 4 = 8<br>
+                        x₁ = x₀ - α·g = 2 - 0.1(8) = 1.2<br>
+                        <br>
+                        <strong>Iteration 2:</strong><br>
+                        g = f'(1.2) = 2(1.2) + 4 = 6.4<br>
+                        x₂ = 1.2 - 0.1(6.4) = 0.56<br>
+                        <br>
+                        <strong>Iteration 3:</strong><br>
+                        g = f'(0.56) = 2(0.56) + 4 = 5.12<br>
+                        x₃ = 0.56 - 0.1(5.12) = 0.048<br>
+                        <br>
+                        Converging to x = -2 (true minimum!)
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Advanced Optimizers</div>
+                    <div class="formula-box">
+                        <strong>Momentum:</strong><br>
+                        Adds velocity to help escape local minima<br>
+                        v = β·v + ∇L(θ)<br>
+                        θ = θ - α·v<br>
+                        <br>
+                        <strong>RMSprop:</strong><br>
+                        Adapts learning rate per parameter<br>
+                        Uses squared gradients<br>
+                        <br>
+                        <strong>Adam (Most Popular!):</strong><br>
+                        Combines Momentum + RMSprop<br>
+                        Adaptive learning rates + momentum<br>
+                        Default choice for most problems<br>
+                        <br>
+                        <strong>AdaGrad, Adadelta, Nadam, etc.</strong>
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>⚠️ Convergence Criteria:</strong> When to stop?<br>
+                    • |∇L(θ)| < ε (gradient very small)<br>
+                    • |L(θₜ) - L(θₜ₋₁)| < ε (loss stops changing)<br>
+                    • Max iterations reached<br>
+                    • Validation loss stops improving
+                </div>
+
+                <div class="ai-connection">
+                    <div class="ai-connection-title">Connection to AI & Computer Vision</div>
+                    <p><strong>🧠 Neural Network Training:</strong> Every deep learning model uses gradient descent (or variants)</p>
+                    <p><strong>📉 Loss Minimization:</strong> CrossEntropy, MSE, etc. - all minimized with GD</p>
+                    <p><strong>🎯 Backpropagation + GD:</strong> Compute gradients with backprop, update with GD</p>
+                    <p><strong>📊 Batch Size Choice:</strong> 32, 64, 128 common for mini-batch GD</p>
+                    <p><strong>⚡ GPU Acceleration:</strong> Mini-batches parallelize on GPU for speed</p>
+                    <p><strong>📈 Learning Rate Schedules:</strong> Decrease α over time for better convergence</p>
+                    <p><strong>🎨 Image Classification:</strong> ResNet, VGG, etc. all trained with Adam/SGD</p>
+                    <p><strong>🔍 Object Detection:</strong> YOLO, Faster R-CNN trained with gradient descent</p>
+                    <p><strong>🎭 GANs:</strong> Two networks playing adversarial game via gradient descent</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Continue in next section... -->
+
+        <div class="footer">
+            <p>💡 <strong>Click on each topic to expand and dive deep!</strong></p>
+            <p style="margin-top: 10px;">Calculus powers all optimization in AI and machine learning 📈</p>
+            <p style="margin-top: 5px; font-size: 0.9em;">Created for Mahad's mastery of ML mathematics</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleTopic(element) {
+            const details = element.querySelector('.details');
+            const icon = element.querySelector('.toggle-icon');
+            const isOpen = details.classList.contains('active');
+            
+            details.classList.toggle('active');
+            element.classList.toggle('open');
+            icon.textContent = isOpen ? '▼' : '▲';
+        }
+    </script>
+</body>
+</html>
+        <!-- TOPIC 3: Vector/Matrix Calculus (Jacobian, Hessian) -->
+        <div class="topic" onclick="toggleTopic(this)">
+            <h2>
+                <span><span class="topic-number">3</span>Vector/Matrix Calculus (Jacobian, Hessian)</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="essence">📐 Derivatives of vector and matrix functions - essential for deep learning</p>
+            
+            <div class="details">
+                <div class="definition">
+                    <div class="definition-title">The Jacobian Matrix</div>
+                    <p>When you have a <strong>vector-valued function</strong> f: ℝⁿ → ℝᵐ (takes n inputs, outputs m values), the Jacobian is the matrix of all first-order partial derivatives.</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Definition:</div>
+                        For f(x) = [f₁(x), f₂(x), ..., fₘ(x)]ᵀ where x = [x₁, ..., xₙ]ᵀ<br>
+                        <br>
+                        J = ⎡∂f₁/∂x₁  ∂f₁/∂x₂  ...  ∂f₁/∂xₙ⎤<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;⎢∂f₂/∂x₁  ∂f₂/∂x₂  ...  ∂f₂/∂xₙ⎥<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;⎢  ⋮        ⋮      ⋱    ⋮   ⎥<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;⎣∂fₘ/∂x₁  ∂fₘ/∂x₂  ...  ∂fₘ/∂xₙ⎦<br>
+                        <br>
+                        J ∈ ℝᵐˣⁿ<br>
+                        <br>
+                        Entry Jᵢⱼ = ∂fᵢ/∂xⱼ
+                    </div>
+                </div>
+
+                <div class="intuition">
+                    <div class="intuition-title">What Does the Jacobian Mean?</div>
+                    <p>The Jacobian tells you how each output changes with respect to each input - it's the "sensitivity matrix"!</p>
+                    <p>• <strong>Row i:</strong> How output fᵢ changes with all inputs</p>
+                    <p>• <strong>Column j:</strong> How all outputs change with input xⱼ</p>
+                    <p>• <strong>Jᵢⱼ:</strong> How much output i changes when input j increases slightly</p>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Example: Computing a Jacobian</div>
+                    <div class="formula-box">
+                        Let f: ℝ² → ℝ² defined by:<br>
+                        f(x,y) = [x²y, xy² + x]ᵀ<br>
+                        <br>
+                        f₁ = x²y,  f₂ = xy² + x<br>
+                        <br>
+                        Compute partial derivatives:<br>
+                        ∂f₁/∂x = 2xy,  ∂f₁/∂y = x²<br>
+                        ∂f₂/∂x = y² + 1,  ∂f₂/∂y = 2xy<br>
+                        <br>
+                        Jacobian:<br>
+                        J = ⎡2xy    x² ⎤<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;⎣y²+1  2xy⎦
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">The Hessian Matrix</div>
+                    <p>The <strong>Hessian</strong> is the matrix of all second-order partial derivatives. It tells us about the curvature of a function!</p>
+                    <div class="formula-box">
+                        <div class="formula-title">Definition:</div>
+                        For f: ℝⁿ → ℝ (scalar function)<br>
+                        <br>
+                        H = ⎡∂²f/∂x₁²     ∂²f/∂x₁∂x₂  ...  ∂²f/∂x₁∂xₙ⎤<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;⎢∂²f/∂x₂∂x₁   ∂²f/∂x₂²    ...  ∂²f/∂x₂∂xₙ⎥<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;⎢    ⋮            ⋮       ⋱      ⋮     ⎥<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;⎣∂²f/∂xₙ∂x₁   ∂²f/∂xₙ∂x₂  ...  ∂²f/∂xₙ²  ⎦<br>
+                        <br>
+                        H ∈ ℝⁿˣⁿ (always square!)<br>
+                        <br>
+                        Entry Hᵢⱼ = ∂²f/∂xᵢ∂xⱼ<br>
+                        <br>
+                        <strong>Key property:</strong> H is symmetric (Hᵢⱼ = Hⱼᵢ) for smooth f
+                    </div>
+                </div>
+
+                <div class="geometric-meaning">
+                    <div class="geometric-title">Hessian & Curvature</div>
+                    <p>The Hessian tells us about the shape of the function:</p>
+                    <p>• <strong>Positive definite H (all eigenvalues > 0):</strong> Local minimum (bowl shape 🥣)</p>
+                    <p>• <strong>Negative definite H (all eigenvalues < 0):</strong> Local maximum (dome shape ⛰️)</p>
+                    <p>• <strong>Indefinite H (mixed eigenvalues):</strong> Saddle point (mountain pass 🏔️)</p>
+                    <p>• <strong>|Hᵢⱼ| large:</strong> Steep curvature in that direction</p>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Example: Computing a Hessian</div>
+                    <div class="formula-box">
+                        f(x,y) = x²y + xy² - 2x - 2y<br>
+                        <br>
+                        First derivatives:<br>
+                        ∂f/∂x = 2xy + y² - 2<br>
+                        ∂f/∂y = x² + 2xy - 2<br>
+                        <br>
+                        Second derivatives:<br>
+                        ∂²f/∂x² = 2y<br>
+                        ∂²f/∂y² = 2x<br>
+                        ∂²f/∂x∂y = 2x + 2y<br>
+                        ∂²f/∂y∂x = 2x + 2y  (same! symmetric)<br>
+                        <br>
+                        Hessian:<br>
+                        H = ⎡  2y      2x+2y⎤<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;⎣2x+2y     2x   ⎦
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Important Matrix Derivatives</div>
+                    <div class="formula-box">
+                        <div class="formula-title">Common Rules:</div>
+                        ∂(Ax)/∂x = A<br>
+                        ∂(xᵀA)/∂x = Aᵀ<br>
+                        ∂(xᵀAx)/∂x = (A + Aᵀ)x<br>
+                        ∂(xᵀAx)/∂x = 2Ax  (if A is symmetric)<br>
+                        <br>
+                        ∂(|x|²)/∂x = ∂(xᵀx)/∂x = 2x<br>
+                        <br>
+                        ∂tr(AB)/∂A = Bᵀ  (trace of product)<br>
+                        <br>
+                        These are CRITICAL for deriving gradient descent updates!
+                    </div>
+                </div>
+
+                <div class="ai-connection">
+                    <div class="ai-connection-title">Connection to AI & Computer Vision</div>
+                    <p><strong>🧠 Backpropagation:</strong> Jacobians connect layers! Chain rule: ∂L/∂x = J·∂L/∂y</p>
+                    <p><strong>📊 Second-Order Optimization:</strong> Newton's method uses Hessian: θ = θ - H⁻¹∇L</p>
+                    <p><strong>⚡ Hessian-Free Methods:</strong> Approximate H without computing it (expensive!)</p>
+                    <p><strong>🎯 Critical Point Analysis:</strong> Check Hessian to classify min/max/saddle</p>
+                    <p><strong>📈 Curvature Information:</strong> Large Hessian eigenvalues = sharp loss landscape</p>
+                    <p><strong>🔍 Parameter Sensitivity:</strong> Jacobian shows which inputs matter most</p>
+                    <p><strong>🎨 Image Filters:</strong> Second derivatives (Laplacian) detect edges/blobs</p>
+                    <p><strong>📐 Regularization:</strong> Penalizing large Hessian = smoother solutions</p>
+                    <p><strong>⚠️ Exploding Gradients:</strong> Large Jacobian norms = training instability</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPIC 4: Chain Rule -->
+        <div class="topic" onclick="toggleTopic(this)">
+            <h2>
+                <span><span class="topic-number">4</span>Chain Rule</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="essence">🔗 Composing derivatives - the heart of backpropagation</p>
+            
+            <div class="details">
+                <div class="definition">
+                    <div class="definition-title">The Chain Rule (Single Variable)</div>
+                    <p>When functions are composed, their derivatives multiply!</p>
+                    <div class="formula-box">
+                        <div class="formula-title">If y = f(u) and u = g(x), then:</div>
+                        dy/dx = dy/du · du/dx<br>
+                        <br>
+                        Or more explicitly:<br>
+                        (f ∘ g)'(x) = f'(g(x)) · g'(x)<br>
+                        <br>
+                        In words: "derivative of outside × derivative of inside"
+                    </div>
+                </div>
+
+                <div class="intuition">
+                    <div class="intuition-title">Intuitive Understanding</div>
+                    <p>Think of it like gear ratios in a machine:</p>
+                    <p>• If u changes 2× as fast as x (du/dx = 2)</p>
+                    <p>• And y changes 3× as fast as u (dy/du = 3)</p>
+                    <p>• Then y changes 6× as fast as x (dy/dx = 2×3 = 6)</p>
+                    <p><strong>Rates multiply through the chain!</strong></p>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Example 1: Nested Functions</div>
+                    <div class="formula-box">
+                        Find derivative of: y = sin(x²)<br>
+                        <br>
+                        Let u = x², so y = sin(u)<br>
+                        <br>
+                        dy/du = cos(u) = cos(x²)<br>
+                        du/dx = 2x<br>
+                        <br>
+                        Chain rule:<br>
+                        dy/dx = dy/du · du/dx = cos(x²) · 2x = 2x·cos(x²)
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Example 2: Triple Composition</div>
+                    <div class="formula-box">
+                        Find derivative of: y = e^(sin(x²))<br>
+                        <br>
+                        Three layers: y = e^u, u = sin(v), v = x²<br>
+                        <br>
+                        dy/du = e^u = e^(sin(x²))<br>
+                        du/dv = cos(v) = cos(x²)<br>
+                        dv/dx = 2x<br>
+                        <br>
+                        Chain rule (multiply all!):<br>
+                        dy/dx = e^(sin(x²)) · cos(x²) · 2x
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Multivariable Chain Rule</div>
+                    <p>When z depends on several variables that each depend on other variables:</p>
+                    <div class="formula-box">
+                        If z = f(u,v) where u = g(x,y) and v = h(x,y):<br>
+                        <br>
+                        ∂z/∂x = ∂z/∂u · ∂u/∂x + ∂z/∂v · ∂v/∂x<br>
+                        <br>
+                        ∂z/∂y = ∂z/∂u · ∂u/∂y + ∂z/∂v · ∂v/∂y<br>
+                        <br>
+                        General form (sum over all paths):<br>
+                        ∂z/∂xᵢ = Σⱼ (∂z/∂uⱼ · ∂uⱼ/∂xᵢ)
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Vector Chain Rule (Jacobians)</div>
+                    <p>For vector functions, the chain rule uses matrix multiplication of Jacobians!</p>
+                    <div class="formula-box">
+                        If z = f(y) and y = g(x):<br>
+                        <br>
+                        ∂z/∂x = ∂z/∂y · ∂y/∂x<br>
+                        <br>
+                        In terms of Jacobians:<br>
+                        Jₓz = Jᵧz · Jₓy<br>
+                        <br>
+                        (matrix multiplication!)<br>
+                        <br>
+                        This is the foundation of backpropagation!
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Neural Network Example</div>
+                    <div class="formula-box">
+                        Simple 2-layer network:<br>
+                        <br>
+                        z₁ = σ(W₁x + b₁)  (hidden layer)<br>
+                        z₂ = σ(W₂z₁ + b₂) (output layer)<br>
+                        L = loss(z₂, y)    (loss function)<br>
+                        <br>
+                        To find ∂L/∂W₁, use chain rule:<br>
+                        <br>
+                        ∂L/∂W₁ = ∂L/∂z₂ · ∂z₂/∂z₁ · ∂z₁/∂W₁<br>
+                        <br>
+                        Each term is a Jacobian!<br>
+                        This is EXACTLY what backpropagation computes!
+                    </div>
+                </div>
+
+                <div class="visual-demo">
+                    <strong>Computational Graph Visualization:</strong><br>
+                    x → [W₁] → z₁ → [σ] → a₁ → [W₂] → z₂ → [σ] → a₂ → [L] → loss<br>
+                    <br>
+                    Forward pass: compute left to right →<br>
+                    Backward pass: chain rule right to left ←<br>
+                    <br>
+                    At each node, multiply by local gradient!
+                </div>
+
+                <div class="ai-connection">
+                    <div class="ai-connection-title">Connection to AI & Computer Vision</div>
+                    <p><strong>🧠 Backpropagation = Chain Rule:</strong> That's it! Backprop is just the chain rule applied to computational graphs</p>
+                    <p><strong>📊 Deep Networks:</strong> 100+ layers = 100+ chain rule applications</p>
+                    <p><strong>🎯 Automatic Differentiation:</strong> PyTorch/TensorFlow compute chain rule automatically</p>
+                    <p><strong>⚡ Gradient Flow:</strong> Gradients "flow" backward through the network via chain rule</p>
+                    <p><strong>📉 Vanishing Gradients:</strong> Many small derivatives multiply → gradient vanishes</p>
+                    <p><strong>📈 Exploding Gradients:</strong> Many large derivatives multiply → gradient explodes</p>
+                    <p><strong>🔄 Residual Connections:</strong> Skip connections help gradient flow (avoid vanishing)</p>
+                    <p><strong>🎨 Style Transfer:</strong> Gradients w.r.t. input image via chain rule</p>
+                    <p><strong>🎭 GANs:</strong> Generator gradients through discriminator via chain rule</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPIC 5: Fundamentals of Optimization -->
+        <div class="topic" onclick="toggleTopic(this)">
+            <h2>
+                <span><span class="topic-number">5</span>Fundamentals of Optimization</span>
+                <span class="toggle-icon">▼</span>
+            </h2>
+            <p class="essence">🎯 Finding the best solution - minima, maxima, and saddle points</p>
+            
+            <div class="details">
+                <div class="definition">
+                    <div class="definition-title">Local vs Global Minima</div>
+                    <p><strong>Local Minimum:</strong> A point where f(x) is smaller than all nearby points</p>
+                    <p><strong>Global Minimum:</strong> A point where f(x) is smallest across the entire domain</p>
+                    <div class="formula-box">
+                        <strong>Local minimum at x*:</strong><br>
+                        f(x*) ≤ f(x) for all x in neighborhood of x*<br>
+                        <br>
+                        <strong>Global minimum at x*:</strong><br>
+                        f(x*) ≤ f(x) for ALL x in domain<br>
+                        <br>
+                        Note: Global minimum is also a local minimum,<br>
+                        but not vice versa!
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Critical Points</div>
+                    <p>Points where the gradient is zero are called <strong>critical points</strong> or <strong>stationary points</strong>.</p>
+                    <div class="formula-box">
+                        A point x* is critical if:<br>
+                        ∇f(x*) = 0  (gradient vanishes)<br>
+                        <br>
+                        Critical points can be:<br>
+                        • Local minimum 🥣<br>
+                        • Local maximum ⛰️<br>
+                        • Saddle point 🏔️ (neither min nor max)<br>
+                        • Inflection point
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">First Derivative Test</div>
+                    <p>Use the gradient to find critical points:</p>
+                    <div class="formula-box">
+                        <strong>1D case (single variable):</strong><br>
+                        • If f'(x) > 0: f is increasing<br>
+                        • If f'(x) < 0: f is decreasing<br>
+                        • If f'(x) = 0: critical point<br>
+                        <br>
+                        <strong>To find minimum:</strong><br>
+                        1. Set f'(x) = 0 and solve for x<br>
+                        2. These are candidate points<br>
+                        3. Use second derivative test to classify
+                    </div>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Second Derivative Test</div>
+                    <p>Use curvature (second derivative or Hessian) to classify critical points:</p>
+                    <div class="formula-box">
+                        <strong>1D case:</strong><br>
+                        At critical point x* where f'(x*) = 0:<br>
+                        • If f''(x*) > 0: local minimum 🥣<br>
+                        • If f''(x*) < 0: local maximum ⛰️<br>
+                        • If f''(x*) = 0: inconclusive (need higher derivatives)<br>
+                        <br>
+                        <strong>Multivariable case:</strong><br>
+                        At critical point x* where ∇f(x*) = 0:<br>
+                        Check eigenvalues λᵢ of Hessian H:<br>
+                        • All λᵢ > 0: local minimum 🥣 (positive definite)<br>
+                        • All λᵢ < 0: local maximum ⛰️ (negative definite)<br>
+                        • Mixed signs: saddle point 🏔️ (indefinite)<br>
+                        • Some λᵢ = 0: inconclusive
+                    </div>
+                </div>
+
+                <div class="geometric-meaning">
+                    <div class="geometric-title">Saddle Points</div>
+                    <p>A <strong>saddle point</strong> is like a mountain pass - minimum in one direction, maximum in another!</p>
+                    <p>Example: f(x,y) = x² - y²</p>
+                    <p>• At (0,0): ∇f = 0 (critical point)</p>
+                    <p>• Along x-axis: looks like minimum (upward curve)</p>
+                    <p>• Along y-axis: looks like maximum (downward curve)</p>
+                    <p>• Result: saddle point! 🐴</p>
+                    <p><strong>In deep learning:</strong> High-dimensional loss landscapes have MANY saddle points!</p>
+                </div>
+
+                <div class="definition">
+                    <div class="definition-title">Convexity</div>
+                    <p>A function is <strong>convex</strong> if the line segment between any two points on the graph lies above the graph.</p>
+                    <div class="formula-box">
+                        <strong>Mathematical definition:</strong><br>
+                        f is convex if for all x, y and λ ∈ [0,1]:<br>
+                        f(λx + (1-λ)y) ≤ λf(x) + (1-λ)f(y)<br>
+                        <br>
+                        <strong>Why it matters:</strong><br>
+                        • Convex functions have NO local minima<br>
+                        • Every local minimum is global! 🎯<br>
+                        • Gradient descent guaranteed to find global minimum<br>
+                        <br>
+                        <strong>Test for convexity:</strong><br>
+                        • 1D: f''(x) ≥ 0 everywhere → convex<br>
+                        • nD: Hessian H is positive semidefinite → convex
+                    </div>
+                </div>
+
+                <div class="example">
+                    <div class="example-title">Example: Finding and Classifying Extrema</div>
+                    <div class="formula-box">
+                        f(x,y) = x² + y² - 2x - 4y + 5<br>
+                        <br>
+                        <strong>Step 1: Find critical points (∇f = 0)</strong><br>
+                        ∂f/∂x = 2x - 2 = 0  →  x = 1<br>
+                        ∂f/∂y = 2y - 4 = 0  →  y = 2<br>
+                        Critical point: (1, 2)<br>
+                        <br>
+                        <strong>Step 2: Compute Hessian</strong><br>
+                        ∂²f/∂x² = 2,  ∂²f/∂y² = 2,  ∂²f/∂x∂y = 0<br>
+                        H = |2  0|<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;|0  2|<br>
+                        <br>
+                        <strong>Step 3: Check eigenvalues</strong><br>
+                        Eigenvalues: λ₁ = 2, λ₂ = 2 (both > 0)<br>
+                        <br>
+                        <strong>Conclusion:</strong> (1,2) is a LOCAL MINIMUM! 🥣<br>
+                        (Actually global minimum since f is convex)
+                    </div>
+                </div>
+
+                <div class="ai-connection">
+                    <div class="ai-connection-title">Connection to AI & Computer Vision</div>
+                    <p><strong>🎯 Loss Landscape:</strong> Neural network training = navigating high-dim optimization landscape</p>
+                    <p><strong>🏔️ Saddle Points:</strong> Major challenge in deep learning - many more saddles than local minima!</p>
+                    <p><strong>📉 Non-Convex Optimization:</strong> Neural networks are highly non-convex (many local minima)</p>
+                    <p><strong>⚡ SGD Escapes Saddles:</strong> Noise in stochastic gradient descent helps escape saddle points</p>
+                    <p><strong>🎨 Convex Losses:</strong> Linear regression, SVM use convex losses (easier to optimize)</p>
+                    <p><strong>🧮 Regularization:</strong> L2 penalty makes problem more convex</p>
+                    <p><strong>📊 Hyperparameter Tuning:</strong> Finding best learning rate = optimization problem!</p>
+                    <p><strong>🔍 Architecture Search:</strong> Finding best network architecture = discrete optimization</p>
+                    <p><strong>⚖️ Multi-Objective:</strong> Balancing accuracy vs speed = multi-objective optimization</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💡 <strong>You've completed the Calculus guide!</strong></p>
+            <p style="margin-top: 10px;">These concepts power EVERY optimization algorithm in AI 🚀</p>
+            <p style="margin-top: 5px; font-size: 0.9em;">Keep practicing and applying to real problems, Mahad!</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleTopic(element) {
+            const details = element.querySelector('.details');
+            const icon = element.querySelector('.toggle-icon');
+            const isOpen = details.classList.contains('active');
+            
+            details.classList.toggle('active');
+            element.classList.toggle('open');
+            icon.textContent = isOpen ? '▼' : '▲';
+        }
+    </script>
+</body>
+</html>
